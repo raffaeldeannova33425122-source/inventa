@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  background: linear-gradient(0deg, #FAF8FF 0%, #FAF8FF 100%), #FFF;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+.header-container {
+  display: flex;
+  height: 64px;
+  padding: 0 32px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #00288E;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brand-title-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.brand-title {
+  color: #00288E;
+  font-family: 'Liberation Serif', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.4px;
+}
+
+.brand-badge {
+  display: flex;
+  padding: 2px 4px;
+  align-items: flex-start;
+  border-radius: 2px;
+  background: #E2E7FF;
+  color: #444653;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.brand-subtitle {
+  color: #444653;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0.12px;
+}
+
+.help-link {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #00288E;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+}
+
+/* Main */
+.main {
+  display: flex;
+  padding: 64.5px 0 0.5px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FAF8FF;
+}
+
+.login-card {
+  display: flex;
+  width: 424px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 8px;
+  border: 1px solid #EAEDFF;
+  background: #FFF;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.10), 0 2px 4px -2px rgba(0, 0, 0, 0.10);
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  align-self: stretch;
+}
+
+.logo-icon {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #1E40AF;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.login-title {
+  padding-top: 10px;
+  color: #131B2E;
+  text-align: center;
+  font-family: 'Liberation Serif', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+}
+
+.login-subtitle {
+  color: #444653;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.field-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+
+.field-label {
+  color: #131B2E;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.forgot-link {
+  color: #00288E;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.12px;
+  text-decoration: none;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 44px;
+  padding: 11px 44px;
+  border-radius: 2px;
+  border: 1px solid rgba(196, 197, 213, 0.30);
+  background: #FFF;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.05) inset;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #131B2E;
+}
+
+.input-wrapper input::placeholder {
+  color: #C4C5D5;
+}
+
+.input-wrapper input#nim {
+  padding-left: 44px;
+  padding-right: 12px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0;
+  display: flex;
+  padding: 12px 12px 12px 0;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.checkbox-row {
+  display: flex;
+  padding-top: 2px;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 2.5px;
+  border: 1px solid #767676;
+  background: #FFF;
+  flex-shrink: 0;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-box {
+  background: #1E40AF;
+  border-color: #1E40AF;
+}
+
+.checkbox-text {
+  color: #131B2E;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.submit-button {
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 100%;
+  border-radius: 4px;
+  background: #1E40AF;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.10), 0 2px 4px -2px rgba(0, 0, 0, 0.10);
+  border: none;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Liberation Serif', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.08px;
+}
+
+.divider {
+  height: 1px;
+  align-self: stretch;
+  width: 100%;
+  background: #EAEDFF;
+}
+
+@media (max-width: 500px) {
+  .login-card {
+    width: 100%;
+  }
+
+  .main {
+    padding: 32px 16px;
+  }
+}
