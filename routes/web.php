@@ -6,6 +6,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin_apk_dashboard', function () {
-    return view('admin_apk/admin_apk_dashboard');
+Route::get('manajemen_admin', function () {
+    return view('admin_apk/manajemen_admin');
+});
+
+Route::get('master_data', function () {
+    return view('admin_apk/master_data');
+});
+
+Route::get('log_sistem', function () {
+    return view('admin_apk/log_sistem');
 });

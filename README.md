@@ -27,18 +27,123 @@ Jika belum install, silakan install terlebih dahulu:
 Buka terminal dan jalankan perintah berikut:
 
 ```bash
-git clone <URL_REPOSITORY>
+git clone git@github.com:raffaeldeannova33425122-source/inventa.git
 cd inventa
 ```
 
-Contoh:
+## 3. Tutorial Penggunaan Git
+
+Berikut panduan dasar penggunaan Git untuk project ini agar proses kolaborasi dan update code lebih rapi.
+
+### 3.1. Mengecek status repository
 
 ```bash
-git clone https://github.com/username/nama-repo.git
-cd inventa
+git status
 ```
 
-## 3. Cara Install Project
+Perintah ini menampilkan file yang sudah berubah, ditambahkan, atau belum di-commit.
+
+### 3.2. Membuat branch baru
+
+```bash
+git checkout -b fitur/nama-fitur
+```
+
+Atau versi terbaru:
+
+```bash
+git switch -c fitur/nama-fitur
+```
+
+Branch baru berguna agar kerjaan Anda tidak bercampur dengan branch utama.
+
+### 3.3. Menambahkan file ke staging area
+
+```bash
+git add .
+```
+
+Jika hanya ingin menambahkan satu file tertentu:
+
+```bash
+git add resources/views/admin_apk/admin_apk_dashboard.blade.php
+```
+
+### 3.4. Commit perubahan
+
+```bash
+git commit -m "Menambahkan fitur dashboard admin"
+```
+
+Gunakan pesan commit yang jelas dan deskriptif.
+
+### 3.5. Push ke repository
+
+```bash
+git push -u origin fitur/nama-fitur
+```
+
+Setelah branch pertama kali dipush, perintah berikut cukup digunakan untuk update selanjutnya:
+
+```bash
+git push
+```
+
+### 3.6. Mengambil update dari branch utama
+
+Sebelum pull request atau sebelum lanjut kerja, biasanya lakukan:
+
+```bash
+git pull origin main
+```
+
+Jika masih berada di branch lain, bisa pindah dulu ke branch utama:
+
+```bash
+git checkout main
+```
+
+Lalu ambil update:
+
+```bash
+git pull origin main
+```
+
+### 3.7. Melihat riwayat commit
+
+```bash
+git log --oneline
+```
+
+Perintah ini menampilkan daftar commit terbaru.
+
+### 3.8. Mengembalikan perubahan
+
+Jika ingin membatalkan perubahan file sebelum commit:
+
+```bash
+git restore nama-file.php
+```
+
+Jika ingin membatalkan perubahan yang sudah masuk staging area:
+
+```bash
+git restore --staged nama-file.php
+```
+
+### 3.9. Contoh workflow kerja harian
+
+```bash
+git status
+git checkout -b fitur/halaman-login
+git add .
+git commit -m "Membuat halaman login"
+git push -u origin fitur/halaman-login
+```
+
+Setelah branch sudah siap, biasanya Anda akan membuat pull request di GitHub/GitLab untuk di-review sebelum digabung ke branch utama.
+
+## 4. Cara Install Project
 
 Setelah masuk ke folder project, jalankan perintah berikut:
 
@@ -73,7 +178,7 @@ Jika ingin menjalankan mode development frontend:
 npm run dev
 ```
 
-## 4. Cara Menjalankan Aplikasi
+## 5. Cara Menjalankan Aplikasi
 
 Jalankan server Laravel:
 
@@ -87,7 +192,7 @@ Buka browser dan akses:
 http://localhost:8000
 ```
 
-## 5. Tools yang Digunakan di Project
+## 6. Tools yang Digunakan di Project
 
 Project ini menggunakan beberapa tools utama:
 
@@ -99,7 +204,7 @@ Project ini menggunakan beberapa tools utama:
 - npm untuk dependency frontend
 - VS Code untuk edit source code
 
-## 6. Cara Membuka File .blade.php
+## 7. Cara Membuka File .blade.php
 
 File tampilan Blade berada di folder:
 
@@ -123,7 +228,7 @@ Atau buka lewat VS Code Explorer lalu arahkan ke folder `resources/views/admin_a
 
 File Blade berisi HTML, CSS, dan struktur tampilan halaman. Jika ingin mengubah UI, edit di file tersebut.
 
-## 7. Cara Membuat Migration
+## 8. Cara Membuat Migration
 
 Migration digunakan untuk membuat tabel di database.
 
@@ -139,41 +244,13 @@ File migration akan dibuat di folder:
 database/migrations/
 ```
 
-Contoh struktur migration:
-
-```php
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
-{
-    public function up(): void
-    {
-        Schema::create('produk', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->integer('harga');
-            $table->timestamps();
-        });
-    }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('produk');
-    }
-};
-```
-
 Setelah selesai, jalankan:
 
 ```bash
 php artisan migrate
 ```
 
-## 8. Cara Membuat Route di Laravel
+## 9. Cara Membuat Route di Laravel
 
 Route berada di file:
 
@@ -181,27 +258,13 @@ Route berada di file:
 routes/web.php
 ```
 
-Contoh route sederhana untuk menampilkan halaman Blade:
-
-```php
-<?php
-
-use Illuminate\Support\Facades\Route;
-
-Route::get('/admin_apk_dashboard', function () {
-    return view('admin_apk.admin_apk_dashboard');
-});
-```
-
-Jika file view ada di `resources/views/admin_apk/admin_apk_dashboard.blade.php`, maka route di atas akan cocok.
-
 Untuk melihat hasilnya, buka browser:
 
 ```text
-http://localhost:8000/admin_apk_dashboard
+http://localhost:8000/nama_file_di_folder_views
 ```
 
-## 9. Contoh Route yang Sudah Ada di Proyek Ini
+## 10. Contoh Route yang Sudah Ada di Proyek Ini
 
 Di file `routes/web.php` sudah ada route berikut:
 
@@ -217,7 +280,7 @@ Route::get('admin_apk_dashboard', function () {
 
 Artinya halaman utama akan menampilkan `welcome.blade.php`, sedangkan halaman admin dashboard akan menampilkan `admin_apk/admin_apk_dashboard.blade.php`.
 
-## 10. Langkah Singkat Setup
+## 11. Langkah Singkat Setup
 
 Berikut langkah cepat untuk mulai project:
 
@@ -232,7 +295,7 @@ npm install
 php artisan serve
 ```
 
-## 11. Catatan Penting
+## 12. Catatan Penting
 
 - Selalu jalankan `php artisan migrate` setelah menambah migration.
 - Jangan lupa sesuaikan `.env` dengan database lokal.
