@@ -33,7 +33,21 @@ Route::get('log_sistem', function () {
     return view('admin_apk/log_sistem');
 })->name('log_sistem');
 
+
+
 // admin UKM
 Route::get('approval_page', function () {
     return view('admin_ukm/approval_page');
 })->name('approval_page');
+
+Route::get('peminjaman_aktif', function () {
+    return view('admin_ukm/peminjaman_aktif');
+})->name('peminjaman_aktif');
+
+Route::get('manajemen_inventaris', function () {
+    return view('admin_ukm/manajemen_inventaris');
+})->name('manajemen_inventaris');
+
+Route::get('profil_ukm', function () {
+    return view('admin_ukm/profil_ukm');
+})->name('profil_ukm');
