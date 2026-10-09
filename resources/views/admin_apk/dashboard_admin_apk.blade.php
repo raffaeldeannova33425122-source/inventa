@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Master Data Sistem • INVENTA</title>
+  <title>Dashboard — Semua UKM • INVENTA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
@@ -72,19 +72,52 @@
     .btn-soft{background:var(--surface-4);color:var(--text)}
     .btn-primary{background:var(--primary);color:#fff}
 
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
     .stat{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;background:#fff;border-radius:8px;box-shadow:var(--shadow)}
     .stat .label{font:500 13px/18px var(--f-body);color:var(--muted)}
     .stat .num{display:flex;align-items:baseline;gap:4px;margin:2px 0}
     .stat strong{font:700 28px/34px var(--f-head)}
     .stat .num span{font-size:13px;color:var(--muted)}
-    .hint{display:flex;align-items:center;gap:4px;font:600 12px/16px var(--f-body);letter-spacing:.12px}
+    .stat .hint{display:flex;align-items:center;gap:4px;font:600 12px/16px var(--f-body);letter-spacing:.12px}
     .stat .ico{width:48px;height:48px;flex:none;border-radius:8px;display:grid;place-items:center;font-size:22px}
     .t-green{color:var(--green)}
+    .t-orange{color:var(--orange)}
 
     .layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
     .col{display:flex;flex-direction:column;gap:12px;min-width:0}
     .card{background:#fff;border-radius:8px;box-shadow:var(--shadow)}
+
+    .toolbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px}
+    .toolbar .searchbox{flex:1 1 220px;max-width:none}
+    .toolbar .searchbox input{background:var(--surface-2);box-shadow:none}
+    .select{position:relative;flex:0 1 auto}
+    .select select{appearance:none;-webkit-appearance:none;max-width:100%;padding:8px 32px 8px 12px;border:0;border-radius:8px;background:var(--surface-2);font:500 13px var(--f-body);color:var(--text);cursor:pointer}
+    .select .i{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--subtle);pointer-events:none}
+
+    .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .mini-card{padding:16px;display:flex;flex-direction:column;gap:8px}
+    .mini-card .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .mini-card .label{font:500 13px/18px var(--f-body);color:var(--muted)}
+    .mini-card .big{font:700 28px/34px var(--f-head)}
+    .mini-card .small{font-size:13px;color:var(--muted)}
+    .mini-card .dotline{height:8px;border-radius:12px;background:var(--surface-3);overflow:hidden}
+    .mini-card .dotline > i{display:block;height:100%;background:#00288E;border-radius:12px}
+
+    .panel{padding:20px;display:flex;flex-direction:column;gap:12px}
+    .note{display:flex;gap:8px;padding:12px;border-radius:8px;background:var(--surface-2);font-size:13px;line-height:1.4}
+    .note .i{color:var(--primary);font-size:17px;margin-top:1px}
+    .panel-head{display:flex;align-items:center;gap:8px}
+    .panel-head .ico{width:36px;height:36px;border-radius:8px;background:#DDE1FF;color:var(--primary);display:grid;place-items:center}
+    .panel-head b{display:block;font:700 14px/20px var(--f-head)}
+    .panel-head small{font:500 11px/16px var(--f-mono);color:var(--muted)}
+    .quota-row{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)}
+    .quota-row b{font:600 13px var(--f-mono);color:var(--text)}
+    .bar{height:8px;border-radius:12px;background:var(--surface-3);overflow:hidden;margin:4px 0}
+    .bar i{display:block;height:100%;background:var(--primary);border-radius:12px}
+    .criteria ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+    .criteria li{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+    .criteria li .i{color:var(--green);font-size:14px}
+
     .table-card{overflow:hidden}
     .table-wrap{overflow-x:auto}
     table{width:100%;border-collapse:collapse}
@@ -94,24 +127,7 @@
     .badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:8px;font:500 12px/16px var(--f-body);letter-spacing:.12px;background:var(--surface-3);color:var(--text)}
     .badge.ok{background:rgba(111,251,190,.30);color:var(--green);font-weight:600}
     .badge.wait{background:rgba(255,219,202,.7);color:var(--orange);font-weight:600}
-    .panel{padding:20px;display:flex;flex-direction:column;gap:12px}
-    .panel-head{display:flex;align-items:center;gap:8px}
-    .panel-head .ico{width:36px;height:36px;border-radius:8px;background:#DDE1FF;color:var(--primary);display:grid;place-items:center}
-    .panel-head b{display:block;font:700 14px/20px var(--f-head)}
-    .panel-head small{font:500 11px/16px var(--f-mono);color:var(--muted)}
-    .note{display:flex;gap:8px;padding:12px;border-radius:8px;background:var(--surface-2);font-size:13px;line-height:1.4}
-    .note .i{color:var(--primary);font-size:17px;margin-top:1px}
-    .criteria ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
-    .criteria li{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
-    .criteria li .i{color:var(--green);font-size:14px}
-    .list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-    .mini{padding:16px;display:flex;flex-direction:column;gap:8px}
-    .mini .head{display:flex;justify-content:space-between;align-items:center;gap:12px}
-    .mini .label{font:500 13px/18px var(--f-body);color:var(--muted)}
-    .mini .big{font:700 28px/34px var(--f-head)}
-    .mini .small{font-size:13px;color:var(--muted)}
-    .bar{height:8px;border-radius:12px;background:var(--surface-3);overflow:hidden;margin-top:4px}
-    .bar i{display:block;height:100%;background:var(--primary);border-radius:12px}
+    .empty{padding:32px;text-align:center;color:var(--muted)}
 
     @media (max-width:1024px){
       .app{grid-template-columns:minmax(0,1fr)}
@@ -141,12 +157,16 @@
     <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
     <symbol id="i-out" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
     <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="i-userplus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
-    <symbol id="i-boxes" viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5-9 4.5L3 7.5Z"/><path d="M3 12.5 12 17l9-4.5"/><path d="M3 17.5 12 22l9-4.5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></symbol>
   </svg>
 
   <div class="app">
@@ -158,9 +178,9 @@
         </div>
         <div class="nav-title">Menu Utama</div>
         <nav class="nav">
-          <a href="{{ route('dashboard_admin_apk') }}"><svg class="i"><use href="#i-dash"/></svg>Dashboard</a>
+          <a href="{{ route('dashboard_admin_apk') }}" class="active"><svg class="i"><use href="#i-dash"/></svg>Dashboard</a>
           <a href="{{ route('manajemen_admin') }}"><svg class="i"><use href="#i-users"/></svg>Manajemen Admin UKM</a>
-          <a href="{{ route('master_data') }}" class="active"><svg class="i"><use href="#i-db"/></svg>Master Data</a>
+          <a href="{{ route('master_data') }}"><svg class="i"><use href="#i-db"/></svg>Master Data</a>
           <a href="{{ route('log_sistem') }}"><svg class="i"><use href="#i-log"/></svg>Log Sistem</a>
         </nav>
       </div>
@@ -196,40 +216,49 @@
       <main class="content">
         <section class="page-head">
           <div>
-            <div class="eyebrow">Standardisasi Taksonomi & Master Repositori</div>
-            <h1>Master Data Sistem</h1>
-            <p>Konfigurasi standardisasi taksonomi inventaris, atribut peralatan, dan direktori UKM se-kampus.</p>
+            <div class="eyebrow">Konsolidasi Sistem Terpadu</div>
+            <h1>Dashboard — Semua UKM</h1>
+            <p>Monitoring agregat peredaran inventaris, status approval, dan kesehatan operasional UKM se-universitas secara real-time.</p>
           </div>
           <div class="head-actions">
-            <a href="#" class="btn btn-soft"><svg class="i"><use href="#i-download"/></svg>Ekspor Data</a>
-            <a href="#" class="btn btn-primary"><svg class="i"><use href="#i-plus"/></svg>Tambah Kategori Baru</a>
+            <a href="#" class="btn btn-soft"><svg class="i"><use href="#i-download"/></svg>Unduh Laporan</a>
+            <a href="#" class="btn btn-primary"><svg class="i"><use href="#i-userplus"/></svg>Tambah Data Baru</a>
           </div>
         </section>
 
-        <section class="stats" aria-label="Ringkasan master data">
+        <section class="stats" aria-label="Ringkasan dashboard">
           <div class="stat">
             <div>
-              <div class="label">Total Kategori Terdaftar</div>
-              <div class="num"><strong>12</strong><span>Klasifikasi Utama</span></div>
-              <div class="hint t-green"><svg class="i"><use href="#i-boxes"/></svg>100% selaras SNI kampus</div>
+              <div class="label">Total UKM Terdaftar</div>
+              <div class="num"><strong>28</strong><span>Lembaga</span></div>
+              <div class="hint t-green"><svg class="i"><use href="#i-building"/></svg>+2 UKM semester ini</div>
             </div>
-            <div class="ico" style="background:var(--surface-3);color:var(--primary)"><svg class="i"><use href="#i-boxes"/></svg></div>
+            <div class="ico" style="background:var(--surface-3);color:var(--primary)"><svg class="i"><use href="#i-building"/></svg></div>
           </div>
 
           <div class="stat">
             <div>
-              <div class="label">Total Unit Alat Terkategori</div>
-              <div class="num"><strong>1,420</strong><span>Unit Aktif</span></div>
-              <div class="hint t-green"><svg class="i"><use href="#i-shield"/></svg>+84 unit baru semester ini</div>
+              <div class="label">Total Aset Terdaftar</div>
+              <div class="num"><strong>1,420</strong><span>Unit</span></div>
+              <div class="hint t-green"><svg class="i"><use href="#i-shield"/></svg>88% status ready</div>
             </div>
             <div class="ico" style="background:var(--surface-3);color:var(--primary)"><svg class="i"><use href="#i-box"/></svg></div>
           </div>
 
           <div class="stat">
             <div>
-              <div class="label">Dokumentasi & Lensa</div>
-              <div class="num"><strong>418</strong><span>Transaksi Log</span></div>
-              <div class="hint t-green"><svg class="i"><use href="#i-check"/></svg>Tingkat rotasi 82%</div>
+              <div class="label">Akun Admin Aktif</div>
+              <div class="num"><strong>34</strong><span>Personel</span></div>
+              <div class="hint t-green"><svg class="i"><use href="#i-users"/></svg>29 terverifikasi</div>
+            </div>
+            <div class="ico" style="background:rgba(111,251,190,.30);color:var(--green)"><svg class="i"><use href="#i-users"/></svg></div>
+          </div>
+
+          <div class="stat">
+            <div>
+              <div class="label">Menunggu Verifikasi</div>
+              <div class="num"><strong>5</strong><span class="t-orange" style="font-weight:600">Perlu Tinjauan</span></div>
+              <div class="hint t-orange"><svg class="i"><use href="#i-clock"/></svg>Menunggu persetujuan</div>
             </div>
             <div class="ico" style="background:rgba(255,219,202,.7);color:var(--orange)"><svg class="i"><use href="#i-clock"/></svg></div>
           </div>
@@ -242,60 +271,60 @@
                 <table>
                   <thead>
                     <tr>
-                      <th>Nama Kategori</th>
-                      <th>Jumlah Unit</th>
-                      <th>Tag Atribut</th>
-                      <th>Standar</th>
+                      <th>Ringkasan Kategori</th>
+                      <th>Unit Aktif</th>
+                      <th>Persentase</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Peralatan Laboratorium</td>
                       <td>420</td>
-                      <td>Teknis, Sensor, Digital</td>
-                      <td><span class="badge ok">Valid</span></td>
+                      <td>72%</td>
+                      <td><span class="badge ok">Normal</span></td>
                     </tr>
                     <tr>
-                      <td>Audio Visual</td>
+                      <td>Perlengkapan Audio Visual</td>
                       <td>310</td>
-                      <td>Audio, Display, Konversi</td>
-                      <td><span class="badge ok">Valid</span></td>
+                      <td>64%</td>
+                      <td><span class="badge ok">Normal</span></td>
                     </tr>
                     <tr>
-                      <td>Olahraga & Rekreasi</td>
+                      <td>Olahraga & Lapangan</td>
                       <td>180</td>
-                      <td>Fisik, Safety, Lapangan</td>
+                      <td>48%</td>
                       <td><span class="badge wait">Review</span></td>
                     </tr>
                     <tr>
                       <td>Dokumentasi & Media</td>
                       <td>210</td>
-                      <td>Foto, Video, Editing</td>
-                      <td><span class="badge ok">Valid</span></td>
+                      <td>58%</td>
+                      <td><span class="badge ok">Normal</span></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <div class="list-grid">
-              <div class="card mini">
-                <div class="head">
-                  <span class="label">Data Atribut</span>
-                  <span class="badge ok">97%</span>
+            <div class="panels">
+              <div class="card mini-card">
+                <div class="top">
+                  <span class="label">Approval Proses</span>
+                  <span class="badge ok">86%</span>
                 </div>
-                <div class="big">184</div>
-                <div class="small">Kolom metadata aktif</div>
-                <div class="bar"><i style="width:97%"></i></div>
+                <div class="big">1,240</div>
+                <div class="small">Permintaan divalidasi</div>
+                <div class="dotline"><i style="width:86%"></i></div>
               </div>
-              <div class="card mini">
-                <div class="head">
-                  <span class="label">Direktori UKM</span>
-                  <span class="badge ok">24</span>
+              <div class="card mini-card">
+                <div class="top">
+                  <span class="label">Inventaris Butuh Perawatan</span>
+                  <span class="badge wait">12</span>
                 </div>
-                <div class="big">24</div>
-                <div class="small">Unit Kegiatan Mahasiswa</div>
-                <div class="bar"><i style="width:80%"></i></div>
+                <div class="big">12</div>
+                <div class="small">Unit masuk jadwal servis</div>
+                <div class="dotline"><i style="width:32%"></i></div>
               </div>
             </div>
           </div>
@@ -304,17 +333,21 @@
             <div class="card panel">
               <div class="panel-head">
                 <div class="ico"><svg class="i"><use href="#i-shield"/></svg></div>
-                <div><b>Standar Master Data</b><small>Relevansi & Integritas</small></div>
+                <div><b>Prioritas Operasional</b><small>Update real-time</small></div>
               </div>
               <div class="note">
                 <svg class="i"><use href="#i-shield"/></svg>
-                <p>Semua kategori baru perlu diverifikasi berkoordinasi dengan pihak data dan kepengurusan UKM.</p>
+                <p>Tiga UKM memerlukan koordinasi pengajuan aset baru sebelum minggu depan.</p>
+              </div>
+              <div>
+                <div class="quota-row"><span>Kuota Slot Terisi Kampus</span><b>34 / 48</b></div>
+                <div class="bar"><i style="width:71%"></i></div>
               </div>
               <div class="criteria">
                 <ul>
-                  <li><svg class="i"><use href="#i-check"/></svg>Nama kategori konsisten</li>
-                  <li><svg class="i"><use href="#i-check"/></svg>Tag atribut sistem lengkap</li>
-                  <li><svg class="i"><use href="#i-check"/></svg>Direktori unit tervalidasi</li>
+                  <li><svg class="i"><use href="#i-check"/></svg>Dokumen pengurus lengkap</li>
+                  <li><svg class="i"><use href="#i-check"/></svg>Verifikasi admin selesai</li>
+                  <li><svg class="i"><use href="#i-check"/></svg>Peminjaman konsolidasi aktif</li>
                 </ul>
               </div>
             </div>
